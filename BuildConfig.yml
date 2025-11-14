@@ -19,3 +19,4 @@ spec:
     dockerStrategy:
       # Find the image build instructions in ./Dockerfile
       dockerfilePath: Containerfile
+
