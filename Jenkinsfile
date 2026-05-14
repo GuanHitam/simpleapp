@@ -11,6 +11,15 @@ pipeline {
             steps {
                 checkout scm
             }
+        }        stage('Fetch and Pull') {
+          steps {
+            script {
+               // Fetch changes
+               sh 'git fetch --all'
+               // Pull changes
+               sh 'git pull origin master'
+            }
+          }
         }
         stage("Docker Build") {
             steps {
