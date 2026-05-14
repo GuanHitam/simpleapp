@@ -19,8 +19,8 @@ pipeline {
                sh 'git fetch --all'
                // Pull changes
                sh 'git pull origin develop'
-                // show folder contents
-                sh 'ls -l'
+                // show current folder and contents
+                sh 'pwd && ls -l'
             }
           }
         }
