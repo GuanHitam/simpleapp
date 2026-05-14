@@ -28,7 +28,8 @@ pipeline {
             steps {
               sh '''
                   #oc start-build --from-build=<build_name>
-                  oc start-build -F BuildConfig --from-dir=./
+                  oc start-build simplebuild --from-dir=./ -F
+                  // oc start-build -F BuildConfig --from-dir=./
                   // --git-repository=https://github.com/GuanHitam/simpleapp
               '''
             }
