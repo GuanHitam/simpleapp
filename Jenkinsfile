@@ -21,6 +21,8 @@ pipeline {
                sh 'git pull origin develop'
                 // show folder contents
                 sh 'ls -l'
+                // test connectivity
+                sh 'curl -v https://github.com/GuanHitam/simpleapp'
             }
           }
         }
@@ -29,7 +31,7 @@ pipeline {
               sh '''
                   #oc start-build --from-build=<build_name>
                   oc start-build -F simpleapp --from-dir=./simpleapp
-                  // --git-repository=https://github.com/GuanHitam/simpleapp.git
+                  // --git-repository=https://github.com/GuanHitam/simpleapp
               '''
             }
         }
