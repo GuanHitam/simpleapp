@@ -2,8 +2,7 @@ apiVersion: build.OpenShift.io/v1
 kind: BuildConfig
 metadata:
   labels:
-    app.kubernetes.io/name: red-api # your application name
-#  name: red-api # your application name
+    app.kubernetes.io/name: simpleapp
   name: simpleapp # your application name
 spec:
   output:
