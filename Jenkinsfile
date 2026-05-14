@@ -11,7 +11,8 @@ pipeline {
             steps {
                 checkout scm
             }
-        }        stage('Fetch and Pull') {
+        }        
+        stage('Fetch and Pull') {
           steps {
             script {
                // Fetch changes
