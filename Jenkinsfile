@@ -21,8 +21,6 @@ pipeline {
                sh 'git pull origin develop'
                 // show folder contents
                 sh 'ls -l'
-                // test connectivity
-                sh 'curl -v https://github.com/GuanHitam/simpleapp'
             }
           }
         }
