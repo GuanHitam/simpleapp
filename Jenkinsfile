@@ -18,7 +18,7 @@ pipeline {
                // Fetch changes
                sh 'git fetch --all'
                // Pull changes
-               sh 'git pull origin'
+               sh 'git pull origin develop'
             }
           }
         }
