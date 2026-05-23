@@ -1,0 +1,57 @@
+stages:
+  - build
+  - deploy_dev
+  - deploy_test
+  - deploy_prod
+
+variables:
+  IMAGE_NAME: localhost:5000/webserver:latest
+
+before_script:
+  - podman info
+
+build:
+  stage: build
+  tags:
+    - shell
+  script:
+    - podman build -t ${IMAGE_NAME} .
+    - podman push ${IMAGE_NAME}
+
+Deploy Dev:
+  stage: deploy_dev
+  tags:
+    - shell
+  script:
+    - chmod +x scripts/deploy-dev.sh
+    - ./scripts/deploy-dev.sh
+  environment:
+    name: development
+    url: http://dev.example.com:8081
+
+Deploy Test:
+  stage: deploy_test
+  tags:
+    - shell
+  script:
+    - chmod +x scripts/deploy-test.sh
+    - ./scripts/deploy-test.sh
+  environment:
+    name: testing
+    url: http://test.example.com:8082
+  when: manual
+
+Deploy Production:
+  stage: deploy_prod
+  tags:
+    - shell
+  script:
+    - chmod +x scripts/deploy-prod.sh
+    - ./scripts/deploy-prod.sh
+  environment:
+    name: production
+    url: http://prod.example.com
+  when: manual
+  only:
+    - main
+
